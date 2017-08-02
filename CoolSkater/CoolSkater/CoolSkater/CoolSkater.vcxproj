@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\GimmickBase\GimmickBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\GimmickManager.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\Handrail\Handrail.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\JumpRamp\JumpRamp.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\Event\LifeUIEvent\LifeUIEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\LifeUI\LifeUIEventListener\LifeUIEventListener.cpp" />
+    <ClCompile Include="Main\Application\Scene\ClearScene\ClearScene.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\LifeUI\LifeUI.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameDataManager\GameDataManager.cpp" />
+    <ClCompile Include="Main\Application\Application.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameScene.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\ObjectManager.cpp" />
+    <ClCompile Include="Main\Main.cpp" />
+    <ClCompile Include="Main\Object2DBase\Object2DBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleScene.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleBackground\TitleBackground.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleLogo\TitleLogo.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleText\TitleText.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\StageManager.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\StageBackground\StageBackground.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\Player\Player.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\ManualUI\ManualUI.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\Event\ManualUIEvent\ManualUIEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\Player\PlayerEventListener\PlayerEventListener.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\StageBackground\StageBackgroundEventListener\StageBackgroundEventListener.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\Event\StageBackgroundEvent\StageBackgroundEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\OverScene\OverScene.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\ScoreUI\ScoreUI.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\ScoreUI\ScoreUIEventListener\ScoreUIEventListener.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\Obstacle\Obstacle.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\GimmickBase\GimmickBase.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\GimmickManager.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\Handrail\Handrail.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\JumpRamp\JumpRamp.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\Event\LifeUIEvent\LifeUIEvent.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\LifeUI\LifeUIEventListener\LifeUIEventListener.h" />
+    <ClInclude Include="Main\Application\Scene\ClearScene\ClearScene.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\LifeUI\LifeUI.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameDataManager\GameDataManager.h" />
+    <ClInclude Include="Main\Application\Application.h" />
+    <ClInclude Include="Main\Application\MyDefine.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameScene.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\ObjectManager.h" />
+    <ClInclude Include="Main\Object2DBase\Object2DBase.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleScene.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleBackground\TitleBackground.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleLogo\TitleLogo.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleText\TitleText.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\StageManager.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\StageBackground\StageBackground.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\Player\Player.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\ManualUI\ManualUI.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\Event\ManualUIEvent\ManualUIEvent.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\Player\PlayerEventListener\PlayerEventListener.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\StageBackground\StageBackgroundEventListener\StageBackgroundEventListener.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\Event\StageBackgroundEvent\StageBackgroundEvent.h" />
+    <ClInclude Include="Main\Application\Scene\OverScene\OverScene.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\ScoreUI\ScoreUI.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\ScoreUI\ScoreUIEventListener\ScoreUIEventListener.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\Obstacle\Obstacle.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DAE4FC66-9101-493B-81F2-DBC358C08885}</ProjectGuid>
+    <RootNamespace>CoolSkater</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\cupkb\Desktop\CoolSkater\CoolSkater\Library;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(SolutionDir)CoolSkater;$(SolutionDir)CoolSkater\Main\Application;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DisableSpecificWarnings>4005</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(SolutionDir)Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d11.lib;d3dx11.lib;d3dx10.lib;dxguid.lib;Library.lib;dinput8.lib;winmm.lib;dsound.lib;XInput.lib;Dbghelp.lib;imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\cupkb\Desktop\CoolSkater\CoolSkater\Library;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(SolutionDir)CoolSkater;$(SolutionDir)CoolSkater\Main\Application;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DisableSpecificWarnings>4005</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(SolutionDir)Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d11.lib;d3dx11.lib;d3dx10.lib;dxguid.lib;Library.lib;dinput8.lib;winmm.lib;dsound.lib;XInput.lib;Dbghelp.lib;imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
