@@ -147,7 +147,15 @@ namespace Lib
 			m_IsInverse = _isInverse;
 		}
 
-
+		/**
+		 * 深度ステンシルステートの設定
+		 * @param[in] _pState 画像が設定するステート
+		 */
+		inline void SetDepthStencilState(ID3D11DepthStencilState* _pState)
+		{
+			m_pUserDepthStencilState = _pState;
+		}
+		
 	private:
 		enum 
 		{ 
@@ -228,6 +236,7 @@ namespace Lib
 		ID3D11BlendState*			m_pBlendState;				//!< ブレンドステート.
 		ID3D11SamplerState*			m_pSamplerState;			//!< サンプラステート.
 		ID3D11DepthStencilState*	m_pDepthStencilState;		//!< 深度ステンシルステート.
+		ID3D11DepthStencilState*	m_pUserDepthStencilState;	//!< ユーザー指定の深度ステンシルステート.
 		ID3D11Buffer*				m_pVertexBuffer;			//!< 頂点バッファ.
 		ID3D11Buffer*				m_pConstantBuffer;			//!< 定数バッファ.
 		ITexture*					m_pTexture;					//!< テクスチャインターフェース.

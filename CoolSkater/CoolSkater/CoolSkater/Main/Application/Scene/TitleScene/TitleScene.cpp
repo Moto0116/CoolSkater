@@ -16,19 +16,24 @@
 #include "DirectX11\TextureManager\TextureManager.h"
 #include "DirectX11\SoundDevice\SoundDevice.h"
 #include "DirectX11\SoundManager\SoundManager.h"
+#include "DirectX11\SoundManager\ISound\ISound.h"
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "TaskManager\TaskBase\DrawTask\DrawTask.h"
 #include "TaskManager\TaskBase\UpdateTask\UpdateTask.h"
 #include "TitleBackground\TitleBackground.h"
 #include "TitleLogo\TitleLogo.h"
 #include "TitleText\TitleText.h"
+#include "TitleClip\TitleClip.h"
 
 
 //----------------------------------------------------------------------
 // Constructor	Destructor
 //----------------------------------------------------------------------
 TitleScene::TitleScene(int _sceneId) :
-	SceneBase(_sceneId)
+	SceneBase(_sceneId),
+	m_IsGameStart(false),
+	m_IsScoreStart(false),
+	m_Counter(0)
 {
 }
 
@@ -75,6 +80,24 @@ bool TitleScene::Initialize()
 		return false;
 	}
 
+	if (!SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+		"Resource\\TitleScene\\TitleSceneBGM.wav",
+		&m_TitleSoundIndex))
+	{
+		OutputErrorLog("サウンドの読み込みに失敗しました");
+		return false;
+	}
+
+	if (!SINGLETON_INSTANCE(Lib::SoundManager)->LoadSound(
+		"Resource\\TitleScene\\Select.wav",
+		&m_TitleSelectIndex))
+	{
+		OutputErrorLog("サウンドの読み込みに失敗しました");
+		return false;
+	}
+
+	SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_TitleSoundIndex)->SoundOperation(
+		Lib::SoundManager::PLAY_LOOP);
 
 	m_pBackground = new TitleBackground();
 	if (!m_pBackground->Initialize())
@@ -94,6 +117,16 @@ bool TitleScene::Initialize()
 		return false;
 	}
 
+	m_pTitleClip = new TitleClip();
+	if (!m_pTitleClip->Initialize())
+	{
+		return false;
+	}
+
+	m_IsGameStart = false;
+	m_IsScoreStart = false;
+	m_Counter = 0;
+
 	m_State = UPDATE_STATE;
 
 	return true;
@@ -101,6 +134,9 @@ bool TitleScene::Initialize()
 
 void TitleScene::Finalize()
 {
+	m_pTitleClip->Finalize();
+	delete m_pTitleClip;
+
 	m_pTitleText->Finalize();
 	delete m_pTitleText;
 
@@ -112,6 +148,11 @@ void TitleScene::Finalize()
 
 	if (SINGLETON_INSTANCE(Lib::SoundManager) != nullptr)
 	{
+		SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_TitleSoundIndex)->SoundOperation(
+			Lib::SoundManager::STOP_RESET);
+
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_TitleSelectIndex);
+		SINGLETON_INSTANCE(Lib::SoundManager)->ReleaseSound(m_TitleSoundIndex);
 		SINGLETON_INSTANCE(Lib::SoundManager)->Finalize();
 		SINGLETON_DELETE(Lib::SoundManager);
 	}
@@ -136,14 +177,17 @@ void TitleScene::Finalize()
 
 	SINGLETON_DELETE(Lib::DrawTaskManager);
 	SINGLETON_DELETE(Lib::UpdateTaskManager);
+
+	m_State = INIT_STATE;
 }
 
 void TitleScene::Update()
 {	
 	// デバイスの入力チェック.
 	SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyUpdate();
-	SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_SPACE);
+	SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_Z);
 	SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_A);
+	SINGLETON_INSTANCE(Lib::InputDeviceManager)->KeyCheck(DIK_LSHIFT);
 	SINGLETON_INSTANCE(Lib::InputDeviceManager)->MouseUpdate();
 
 	// 更新処理.
@@ -156,16 +200,48 @@ void TitleScene::Update()
 
 
 
-	if (SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState()[DIK_SPACE] == Lib::KeyDevice::KEY_PUSH)
+	if (m_IsGameStart == false && m_IsScoreStart == false)
 	{
-		m_State = FINAL_STATE;
-		m_NextSceneID = Application::GAME_SCENE_ID;
-	}
-	else if (SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState()[DIK_A] == Lib::KeyDevice::KEY_PUSH)
-	{
-		///@todo ウィンドウ破棄時のDestroyWindowに問題があると思うので要チェック
+		if (SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState()[DIK_Z] == Lib::KeyDevice::KEY_PUSH)
+		{
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_TitleSelectIndex)->SoundOperation(
+				Lib::SoundManager::PLAY);
 
-		//m_State = FINAL_STATE;
-		//m_NextSceneID = Application::END_SCENE_ID;
+			m_IsGameStart = true;
+
+			m_pTitleClip->SetIsCliping(true);
+			m_pTitleClip->SetIsFadeIn(false);
+		}
+		else if (SINGLETON_INSTANCE(Lib::InputDeviceManager)->GetKeyState()[DIK_LSHIFT] == Lib::KeyDevice::KEY_PUSH)
+		{
+			SINGLETON_INSTANCE(Lib::SoundManager)->GetSound(m_TitleSelectIndex)->SoundOperation(
+				Lib::SoundManager::PLAY);
+
+			m_IsScoreStart = true;
+
+			m_pTitleClip->SetIsCliping(true);
+			m_pTitleClip->SetIsFadeIn(false);
+		}
+	}
+	else
+	{
+		if (m_IsGameStart == true)
+		{
+			m_Counter++;
+			if (m_Counter == 110)
+			{
+				m_State = FINAL_STATE;
+				m_NextSceneID = Application::GAME_SCENE_ID;
+			}
+		}
+		else if (m_IsScoreStart == true)
+		{
+			m_Counter++;
+			if (m_Counter == 110)
+			{
+				m_State = FINAL_STATE;
+				m_NextSceneID = Application::SCORE_SCENE_ID;
+			}
+		}
 	}
 }

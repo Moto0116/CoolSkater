@@ -15,6 +15,12 @@
 namespace Lib
 {
 	//----------------------------------------------------------------------
+	// Static Public Variables
+	//----------------------------------------------------------------------
+	const int GraphicsDevice::m_ScreenShotCountMax = 30;
+
+
+	//----------------------------------------------------------------------
 	// Constructor	Destructor
 	//----------------------------------------------------------------------
 	GraphicsDevice::GraphicsDevice() :
@@ -169,6 +175,25 @@ namespace Lib
 		return true;
 	}
 
+	bool GraphicsDevice::CreateScreenShot(LPCTSTR _filePath)
+	{
+		if (m_ScreenShotCount >= m_ScreenShotCountMax)
+		{
+			OutputErrorLog("スクリーンショットの作成数が規定数に達しています");
+			return false;
+		}
+
+		if (FAILED(D3DX11SaveTextureToFile(m_pDeviceContext, m_pBackBuffer, D3DX11_IFF_PNG, _filePath)))
+		{
+			OutputErrorLog("スクリーンショットの作成に失敗しました");
+			return false;
+		}
+
+		m_ScreenShotCount++;
+
+		return true;
+	}
+
 
 	//----------------------------------------------------------------------
 	// Private Functions
@@ -215,25 +240,25 @@ namespace Lib
 
 	bool GraphicsDevice::CreateDisplay()
 	{
-		// グラフィックインストラクチャの取得.
+		// グラフィックインフラストラクチャの取得.
 		if (FAILED(m_pDevice->QueryInterface(__uuidof(IDXGIDevice1), reinterpret_cast<void**>(&m_pDXGI))))
 		{
-			OutputErrorLog("グラフィックインストラクチャの取得に失敗しました");
+			OutputErrorLog("グラフィックインフラストラクチャの取得に失敗しました");
 			return false;
 		}
 
-		// グラフィックインストラクチャアダプタの取得.
+		// グラフィックインフラストラクチャアダプタの取得.
 		if (FAILED(m_pDXGI->GetAdapter(&m_pAdapter)))
 		{
-			OutputErrorLog("グラフィックインストラクチャアダプタの取得に失敗しました");
+			OutputErrorLog("グラフィックインフラストラクチャアダプタの取得に失敗しました");
 			ReleaseDisplay();
 			return false;
 		}
 
-		// グラフィックインストラクチャファクトリの取得.
+		// グラフィックインフラストラクチャファクトリの取得.
 		if (FAILED(m_pAdapter->GetParent(__uuidof(IDXGIFactory), reinterpret_cast<void**>(&m_pDXGIFactory))))
 		{
-			OutputErrorLog("グラフィックインストラクチャファクトリの取得に失敗しました");
+			OutputErrorLog("グラフィックインフラストラクチャファクトリの取得に失敗しました");
 			ReleaseDisplay();
 			return false;
 		}

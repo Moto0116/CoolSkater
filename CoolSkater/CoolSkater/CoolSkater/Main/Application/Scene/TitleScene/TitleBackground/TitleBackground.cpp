@@ -18,8 +18,8 @@
 //----------------------------------------------------------------------
 TitleBackground::TitleBackground()
 {
-	m_Pos = D3DXVECTOR2(800, 450);
-	m_Size = D3DXVECTOR2(1600, 900);
+	m_Pos = D3DXVECTOR2(640, 360);
+	m_Size = D3DXVECTOR2(1280, 720);
 }
 
 TitleBackground::~TitleBackground()

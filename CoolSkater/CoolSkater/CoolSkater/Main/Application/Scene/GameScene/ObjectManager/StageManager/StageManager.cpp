@@ -40,7 +40,6 @@ bool StageManager::Initialize()
 	{
 		if (!(*itr)->Initialize())
 		{
-			Finalize();
 			return false;
 		}
 	}

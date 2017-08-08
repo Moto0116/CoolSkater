@@ -40,6 +40,29 @@
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\Obstacle\Obstacle.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\GimmickManager.cpp" />
     <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\GimmickBase\GimmickBase.cpp" />
+    <ClCompile Include="Main\Application\Scene\ClearScene\ClearBackground\ClearBackground.cpp" />
+    <ClCompile Include="Main\Application\Scene\ClearScene\ClearLogo\ClearLogo.cpp" />
+    <ClCompile Include="Main\Application\Scene\ClearScene\ClearText\ClearText.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\CollisionManager\CollisionManager.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\GameSceneEventListener\GameSceneEventListener.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\ObstacleCar\ObstacleCar.cpp" />
+    <ClCompile Include="Main\Application\Scene\OverScene\OverText\OverText.cpp" />
+    <ClCompile Include="Main\Application\Scene\OverScene\OverLogo\OverLogo.cpp" />
+    <ClCompile Include="Main\Application\Scene\OverScene\OverBackground\OverBackground.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\Event\PlayerEvent\PlayerEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\ScoreScene\ScoreScene.cpp" />
+    <ClCompile Include="Main\Application\Scene\ScoreScene\ScoreText\ScoreText.cpp" />
+    <ClCompile Include="Main\Application\Scene\TitleScene\TitleClip\TitleClip.cpp" />
+    <ClCompile Include="Main\Application\Scene\ClearScene\ClearClip\ClearClip.cpp" />
+    <ClCompile Include="Main\Application\Scene\OverScene\OverClip\OverClip.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\PointItem\PointItem.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\Scaffold\Scaffold.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\GameClip\GameClip.cpp" />
+    <ClCompile Include="Main\Application\Scene\ScoreScene\ScoreClip\ScoreClip.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\GameClip\GameClipEventListener\GameClipEventListener.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\Event\GameClipEvent\GameClipEvent.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\Syringe\Syringe.cpp" />
+    <ClCompile Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\Golden\Golden.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\Object2DBase\Object2DBase.h" />
@@ -72,5 +95,44 @@
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\Obstacle\Obstacle.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\GimmickManager.h" />
     <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\GimmickBase\GimmickBase.h" />
+    <ClInclude Include="Main\Application\Scene\ClearScene\ClearBackground\ClearBackground.h" />
+    <ClInclude Include="Main\Application\Scene\ClearScene\ClearLogo\ClearLogo.h" />
+    <ClInclude Include="Main\Application\Scene\ClearScene\ClearText\ClearText.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\CollisionManager\CollisionManager.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\GameSceneEventListener\GameSceneEventListener.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\ObstacleCar\ObstacleCar.h" />
+    <ClInclude Include="Main\Application\Scene\OverScene\OverText\OverText.h" />
+    <ClInclude Include="Main\Application\Scene\OverScene\OverLogo\OverLogo.h" />
+    <ClInclude Include="Main\Application\Scene\OverScene\OverBackground\OverBackground.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\Event\PlayerEvent\PlayerEvent.h" />
+    <ClInclude Include="Main\Application\Scene\ScoreScene\ScoreScene.h" />
+    <ClInclude Include="Main\Application\Scene\ScoreScene\ScoreText\ScoreText.h" />
+    <ClInclude Include="Main\Application\Scene\TitleScene\TitleClip\TitleClip.h" />
+    <ClInclude Include="Main\Application\Scene\ClearScene\ClearClip\ClearClip.h" />
+    <ClInclude Include="Main\Application\Scene\OverScene\OverClip\OverClip.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\PointItem\PointItem.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\Scaffold\Scaffold.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\GameClip\GameClip.h" />
+    <ClInclude Include="Main\Application\Scene\ScoreScene\ScoreClip\ScoreClip.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\GameClip\GameClipEventListener\GameClipEventListener.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\Event\GameClipEvent\GameClipEvent.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\Syringe\Syringe.h" />
+    <ClInclude Include="Main\Application\Scene\GameScene\ObjectManager\StageManager\GimmickManager\Golden\Golden.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Resource\TitleScene\ClipEffect.fx" />
+    <FxCompile Include="Resource\TitleScene\TextureCreateEffect.fx" />
+    <FxCompile Include="Resource\ClearScene\ClipEffect.fx" />
+    <FxCompile Include="Resource\ClearScene\TextureCreateEffect.fx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource\resource.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resource\icon.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
   </ItemGroup>
 </Project>

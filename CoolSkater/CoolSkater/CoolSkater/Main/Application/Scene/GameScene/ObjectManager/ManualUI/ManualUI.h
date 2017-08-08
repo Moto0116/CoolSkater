@@ -79,6 +79,17 @@ private:
 
 	ManualUIEvent*	m_pEvent;
 
+	int m_TextureIndex2;
+	int m_TextureIndex3;
+	int m_GameStartIndex;
+	bool m_IsSendMessage;
+	bool m_IsManualOut;
+
+	float m_ManualAlphaColor;
+
+	float m_StartAlphaColor;
+	bool m_IsStartAlphaFlash;
+
 };
 
 

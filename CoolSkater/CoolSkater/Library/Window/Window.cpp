@@ -72,7 +72,7 @@ namespace Lib
 		WndClass.cbClsExtra = 0;
 		WndClass.cbWndExtra = 0;
 		WndClass.hInstance = GetModuleHandle(nullptr);
-		WndClass.hIcon = LoadIcon(nullptr, IDI_APPLICATION);
+		WndClass.hIcon = LoadIcon(GetModuleHandle(nullptr), "SKATER");
 		WndClass.hCursor = LoadCursor(nullptr, IDC_ARROW);
 		WndClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
 		WndClass.lpszMenuName = nullptr;

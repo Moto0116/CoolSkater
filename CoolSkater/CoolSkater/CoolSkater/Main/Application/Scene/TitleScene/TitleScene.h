@@ -15,6 +15,7 @@
 class TitleBackground;
 class TitleLogo;
 class TitleText;
+class TitleClip;
 
 
 class TitleScene : public Lib::SceneBase
@@ -51,6 +52,13 @@ private:
 	TitleBackground*	m_pBackground;
 	TitleLogo*			m_pTitleLogo;
 	TitleText*			m_pTitleText;
+	TitleClip*			m_pTitleClip;
+
+	int m_TitleSoundIndex;
+	int m_TitleSelectIndex;
+	bool m_IsGameStart;
+	bool m_IsScoreStart;
+	int m_Counter;
 
 };
 

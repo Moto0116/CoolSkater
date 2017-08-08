@@ -14,6 +14,7 @@
 #include "ManualUI\ManualUI.h"
 #include "ScoreUI\ScoreUI.h"
 #include "LifeUI\LifeUI.h"
+#include "GameClip\GameClip.h"
 
 
 //----------------------------------------------------------------------
@@ -24,9 +25,10 @@ ObjectManager::ObjectManager()
 	m_pObjectManagers.push_back(new StageManager());
 
 	m_pObjects.push_back(new Player());
-	m_pObjects.push_back(new ManualUI());
 	m_pObjects.push_back(new ScoreUI());
 	m_pObjects.push_back(new LifeUI());
+	m_pObjects.push_back(new ManualUI());
+	m_pObjects.push_back(new GameClip());
 }
 
 ObjectManager::~ObjectManager()
@@ -52,7 +54,6 @@ bool ObjectManager::Initialize()
 	{
 		if (!(*itr)->Initialize())
 		{
-			Finalize();
 			return false;
 		}
 	}
@@ -61,7 +62,6 @@ bool ObjectManager::Initialize()
 	{
 		if (!(*itr)->Initialize())
 		{
-			Finalize();
 			return false;
 		}
 	}

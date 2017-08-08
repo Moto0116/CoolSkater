@@ -13,6 +13,7 @@
 
 #include "ObjectManager\ObjectManager.h"
 #include "DirectX11\Font\Font.h"
+#include "GameSceneEventListener\GameSceneEventListener.h"
 
 
 /**
@@ -29,8 +30,10 @@ public:
 		EMPTY_EVENT = 0,
 		GAMEPAUSE_EVENT,
 		GAMESTART_EVENT,
-		GAMEUPDATE_EVENT,
-		PLAYERDEAD_EVENT
+		STAGEBACKGROUND_EVENT,
+		PLAYERDEAD_EVENT,	// プレイヤーのライフが0になった際のイベント
+		PLAYER_EVENT,		// プレイヤーのイベント
+		CLIP_EVENT
 	};
 
 	/**
@@ -62,6 +65,17 @@ public:
 
 private:
 	ObjectManager*	m_pObjectManager;	//!< シーン内オブジェクト管理クラス.
+
+	GameSceneEventListener* m_pEventListener;
+
+	int m_GameSoundIndex;
+
+	// イベント受信関数.
+	void ReciveEvent(Lib::EventBase* _pEvent);
+	void ScoreSave();
+	void NewScoreSave();
+
+	bool m_IsClear;
 
 };
 

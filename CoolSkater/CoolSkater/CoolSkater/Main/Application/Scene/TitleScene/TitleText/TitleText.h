@@ -48,6 +48,15 @@ public:
 
 private:
 	int	m_TextureIndex2;
+	int	m_TextureIndex3;
+	int	m_TextureIndex4;
+	bool m_IsGameStart;
+	bool m_IsFlash;
+	float m_AlphaColor;
+
+	bool m_IsScoreStart;
+	bool m_IsScoreFlash;
+	float m_ScoreAlphaColor;
 
 };
 

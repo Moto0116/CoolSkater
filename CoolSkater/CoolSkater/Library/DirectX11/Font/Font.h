@@ -65,6 +65,15 @@ namespace Lib
 		 */
 		void Draw(const D3DXVECTOR2* _pDrawPos, LPCTSTR _pStr);
 
+		/**
+		 * テクスチャの名前を設定
+		 * @param[in] _pTextureName 設定するテクスチャの名前
+		 */
+		void SetTextureName(LPCSTR _pTextureName)
+		{
+			m_TextureName = _pTextureName;
+		}
+
 	private:
 		enum
 		{
@@ -164,6 +173,8 @@ namespace Lib
 		D3DXVECTOR2					m_FontSize;				//!< フォントのサイズ.
 		float						m_WindowWidth;			//!< ウィンドウの幅.
 		float						m_WindowHeight;			//!< ウィンドウの高さ.
+
+		LPCSTR						m_TextureName;			//!< 使用するテクスチャの名前
 
 	};
 }

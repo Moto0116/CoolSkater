@@ -17,8 +17,8 @@
 //----------------------------------------------------------------------
 TitleLogo::TitleLogo()
 {
-	m_Pos = D3DXVECTOR2(800, 230);
-	m_Size = D3DXVECTOR2(600, 180);
+	m_Pos = D3DXVECTOR2(640, 200);
+	m_Size = D3DXVECTOR2(800, 250);
 }
 
 TitleLogo::~TitleLogo()
@@ -45,6 +45,9 @@ bool TitleLogo::Initialize()
 		return false;
 	}
 
+	m_IsUp = true;
+	m_Counter = 0;
+
 	return true;
 }
 
@@ -59,6 +62,26 @@ void TitleLogo::Finalize()
 
 void TitleLogo::Update()
 {
+	if (m_IsUp)
+	{
+		m_Counter++;
+		m_Pos.y -= 0.15f;
+		if (m_Counter >= 80)
+		{
+			m_Counter = 0;
+			m_IsUp = false;
+		}
+	}
+	else
+	{
+		m_Counter++;
+		m_Pos.y += 0.15f;
+		if (m_Counter >= 80)
+		{
+			m_Counter = 0;
+			m_IsUp = true;
+		}
+	}
 }
 
 void TitleLogo::Draw()

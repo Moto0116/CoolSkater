@@ -25,7 +25,8 @@ namespace Lib
 	public:
 		friend SingletonBase<GraphicsDevice>;
 
-		static const int m_RenderTargetNum = D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT;
+		static const int m_RenderTargetNum = D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT;	//!< 描画先の最大設定数.
+		static const int m_ScreenShotCountMax;	//!< スクリーンショットの最大作成数.
 
 
 		/**
@@ -96,6 +97,12 @@ namespace Lib
 		 */
 		bool SetClearColor(D3DXCOLOR _clearColor, int _stage);
 
+		/**
+		 * バックバッファのスクリーンショット作成(png形式のみ対応)
+		 * @param[in] _filePath 生成したファイルのパス
+		 * @return スクリーンショットの作成に成功したらtrue 失敗したらfalse
+		 */
+		bool CreateScreenShot(LPCTSTR _filePath);
 
 		/**
 		 * DirectXデバイスの取得
@@ -160,7 +167,6 @@ namespace Lib
 			m_pDXGISwapChain->SetFullscreenState(_isFullScreenState, nullptr);
 		}
 
-
 	private:
 		/**
 		 * コンストラクタ
@@ -212,6 +218,8 @@ namespace Lib
 		ID3D11RasterizerState*  m_pRasterizerState;		//!< ラスタライザステート.
 		HWND					m_hWnd;					//!< 対応するウィンドウハンドル.
 		RECT					m_WindowRect;			//!< ウィンドウの矩形情報.
+
+		int						m_ScreenShotCount;		//!< スクリーンショットの作成数.
 
 
 		DISALLOW_COPY_AND_ASSIGN(GraphicsDevice);

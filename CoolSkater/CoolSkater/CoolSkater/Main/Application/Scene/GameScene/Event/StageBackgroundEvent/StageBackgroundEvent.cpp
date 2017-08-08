@@ -16,7 +16,8 @@
 // Constructor	Destructor
 //----------------------------------------------------------------------
 StageBackgroundEvent::StageBackgroundEvent() :
-	Lib::EventBase(GameScene::GAMEUPDATE_EVENT)
+	Lib::EventBase(GameScene::STAGEBACKGROUND_EVENT),
+	m_Type(GAMEUPDATE_EVENT)
 {
 }
 

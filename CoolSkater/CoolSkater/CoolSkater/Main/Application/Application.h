@@ -15,6 +15,9 @@
 
 class GameScene;
 class TitleScene;
+class ClearScene;
+class OverScene;
+class ScoreScene;
 
 
 /**
@@ -30,6 +33,9 @@ public:
 	{
 		TITLE_SCENE_ID,	//!< タイトルシーンID.
 		GAME_SCENE_ID,	//!< ゲームシーンID.
+		CLEAR_SCENE_ID,	//!< クリアシーンID.
+		OVER_SCENE_ID,	//!< オーバーシーンID.
+		SCORE_SCENE_ID,	//!< スコアシーンID.
 		END_SCENE_ID	//!< 終了ID.
 	};
 
@@ -114,6 +120,9 @@ private:
 	Lib::SceneManager*	m_pSceneManager;	//!< シーン管理オブジェクト.
 	GameScene*			m_pGameScene;		//!< シーンオブジェクト.
 	TitleScene*			m_pTitleScene;		//!< シーンオブジェクト.
+	ClearScene*			m_pClearScene;		//!< シーンオブジェクト.
+	OverScene*			m_pOverScene;		//!< シーンオブジェクト.
+	ScoreScene*			m_pScoreScene;		//!< シーンオブジェクト.
 
 };
 

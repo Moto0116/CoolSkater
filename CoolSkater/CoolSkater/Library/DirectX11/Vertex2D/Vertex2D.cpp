@@ -29,6 +29,7 @@ namespace Lib
 		m_pBlendState(nullptr),
 		m_pSamplerState(nullptr),
 		m_pDepthStencilState(nullptr),
+		m_pUserDepthStencilState(nullptr),
 		m_pVertexBuffer(nullptr),
 		m_pConstantBuffer(nullptr),
 		m_pTexture(nullptr),
@@ -301,7 +302,15 @@ namespace Lib
 			m_pGraphicsDevice->GetDeviceContext()->PSSetShaderResources(0, 1, &pTextureResource);
 		}
 
-		m_pGraphicsDevice->GetDeviceContext()->OMSetDepthStencilState(m_pDepthStencilState, 0);
+		if (m_pUserDepthStencilState == nullptr)
+		{
+			m_pGraphicsDevice->GetDeviceContext()->OMSetDepthStencilState(m_pDepthStencilState, 0);
+		}
+		else
+		{
+			m_pGraphicsDevice->GetDeviceContext()->OMSetDepthStencilState(m_pUserDepthStencilState, 0);
+		}
+
 		m_pGraphicsDevice->GetDeviceContext()->OMSetBlendState(m_pBlendState, nullptr, 0xffffffff);
 
 		UINT Stride = sizeof(VERTEX);

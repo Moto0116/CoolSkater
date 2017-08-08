@@ -36,7 +36,8 @@ namespace Lib
 		m_pConstantBuffer(nullptr),
 		m_pShaderResource(nullptr),
 		m_WindowWidth(0),
-		m_WindowHeight(0)
+		m_WindowHeight(0),
+		m_TextureName(TEXT("Library\\DirectX11\\Font\\Texture\\Font.png"))
 	{
 	}
 
@@ -398,7 +399,7 @@ namespace Lib
 		// テクスチャ読み込み.
 		if (FAILED(D3DX11CreateShaderResourceViewFromFile(
 			m_pGraphicsDevice->GetDevice(),
-			TEXT("Library\\DirectX11\\Font\\Texture\\Font.png"),
+			m_TextureName,
 			&LoadInfo,
 			nullptr,
 			&m_pShaderResource,

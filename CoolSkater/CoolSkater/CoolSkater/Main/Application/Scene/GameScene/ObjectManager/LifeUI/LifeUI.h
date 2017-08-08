@@ -78,8 +78,15 @@ private:
 	LifeUIEventListener* m_pEventListener;
 	Lib::Font* m_pFont;
 	int m_Life;
+	int m_PrevLife;
+
+	int m_FlashCounter;
+	float m_LifeAlpha;
+	bool m_IsFlash;
 
 	LifeUIEvent* m_pEvent;
+
+	int m_TextureIndex2;
 
 };
 

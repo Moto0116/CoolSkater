@@ -29,11 +29,13 @@ namespace Lib
 	template <typename Type, typename BeginTask>
 	inline void TaskManager<Type, BeginTask>::Run()
 	{
+		m_pBeginTaskList.sort(BeginTask::TaskCmp());
 		for (auto itr = m_pBeginTaskList.begin(); itr != m_pBeginTaskList.end(); itr++)
 		{
 			(*itr)->Run();
 		}
 
+		m_pTaskList.sort(Type::TaskCmp());
 		for (auto itr = m_pTaskList.begin(); itr != m_pTaskList.end(); itr++)
 		{
 			(*itr)->Run();
@@ -44,7 +46,6 @@ namespace Lib
 	inline void TaskManager<Type, BeginTask>::AddTask(Type* _pTask)
 	{
 		m_pTaskList.push_back(_pTask);
-		m_pTaskList.sort(Type::TaskCmp());
 	}
 
 	template <typename Type, typename BeginTask>
@@ -64,7 +65,6 @@ namespace Lib
 	inline void TaskManager<Type, BeginTask>::AddBeginTask(BeginTask* _pBeginTask)
 	{
 		m_pBeginTaskList.push_back(_pBeginTask);
-		m_pBeginTaskList.sort(BeginTask::TaskCmp());
 	}
 
 	template <typename Type, typename BeginTask>

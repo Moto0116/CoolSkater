@@ -45,6 +45,10 @@ public:
 	 */
 	virtual void Draw();
 
+private:
+	bool m_IsUp;
+	int m_Counter;
+
 };
 
 

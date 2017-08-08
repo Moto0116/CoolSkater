@@ -64,6 +64,14 @@ private:
 		STATE_MAX
 	};
 
+	enum STAGE_TYPE
+	{
+		STAGE_1,
+		STAGE_2,
+		STAGE_3,
+		STAGE_4
+	};
+
 	static const D3DXVECTOR2 m_DefaultPos;	//!< デフォルト座標.
 
 	// 更新関数.
@@ -82,11 +90,29 @@ private:
 	void(StageBackground::*m_pDrawFunc)();
 	int	m_TextureIndex2;
 	int	m_TextureIndex3;
+	int	m_TextureIndex4;
+	int	m_Stage12TextureIndex;
+	int	m_Stage23TextureIndex;
+	int m_CurrentTextureIndex;
+	int m_NextTextureIndex;
 	float m_AlphaColor;
 
 	STATE m_State;
 	StageBackgroundEventListener*	m_pEventListener;
 	StageBackgroundEvent*			m_pEvent;
+
+	STAGE_TYPE m_StageType;
+	int Stage1Length;
+	int Stage2Length;
+	int Stage3Length;
+
+	bool m_IsStage12;
+	bool m_IsStage23;
+
+	D3DXVECTOR2 m_Stage12Pos;
+	D3DXVECTOR2 m_Stage12Size;
+	D3DXVECTOR2 m_Stage23Pos;
+	D3DXVECTOR2 m_Stage23Size;
 
 };
 

@@ -14,13 +14,17 @@
 #include "InputDeviceManager\InputDeviceManager.h"
 #include "Scene\GameScene\GameScene.h"
 #include "Scene\TitleScene\TitleScene.h"
+#include "Scene\ClearScene\ClearScene.h"
+#include "Scene\OverScene\OverScene.h"
+#include "Scene\ScoreScene\ScoreScene.h"
 
 
 //----------------------------------------------------------------------
 // Static Public Variables
 //----------------------------------------------------------------------
-const int Application::m_WindowWidth = 1600;
-const int Application::m_WindowHeight = 900;
+const int Application::m_WindowWidth = 1280;
+const int Application::m_WindowHeight = 720;
+
 
 //----------------------------------------------------------------------
 // Static Private Variables
@@ -183,7 +187,17 @@ bool Application::CreateSceneManager()
 
 	m_pTitleScene = new TitleScene(TITLE_SCENE_ID);
 	m_pSceneManager->AddScene(m_pTitleScene);
-	m_pSceneManager->SetEntryScene(m_pTitleScene);	// エントリシーンとして設定.
+
+	m_pClearScene = new ClearScene(CLEAR_SCENE_ID);
+	m_pSceneManager->AddScene(m_pClearScene);
+
+	m_pOverScene = new OverScene(OVER_SCENE_ID);
+	m_pSceneManager->AddScene(m_pOverScene);
+
+	m_pScoreScene = new ScoreScene(SCORE_SCENE_ID);
+	m_pSceneManager->AddScene(m_pScoreScene);
+
+	m_pSceneManager->SetEntryScene(m_pTitleScene);	// エントリーシーン設定.
 
 	return true;
 }
@@ -223,6 +237,15 @@ void Application::ReleaseSceneManager()
 {
 	if (m_pSceneManager != nullptr)
 	{
+		m_pSceneManager->DeleteScene(m_pScoreScene);
+		SafeDelete(m_pScoreScene);
+
+		m_pSceneManager->DeleteScene(m_pOverScene);
+		SafeDelete(m_pOverScene);
+
+		m_pSceneManager->DeleteScene(m_pClearScene);
+		SafeDelete(m_pClearScene);
+
 		m_pSceneManager->DeleteScene(m_pTitleScene);
 		SafeDelete(m_pTitleScene);
 
